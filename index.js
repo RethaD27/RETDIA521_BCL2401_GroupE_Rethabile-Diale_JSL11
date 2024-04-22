@@ -1,8 +1,8 @@
 // TASK: import helper functions from utils
-import { getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunctions.js';
+import { getTasks, createNewTask, patchTask, putTask, deleteTask } from './utils/taskFunctions.js';
 
 // TASK: import initialData
-import  {initialData}  from './initialData.js';
+import  { initialData }  from './initialData.js';
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -177,14 +177,13 @@ function setupEventListeners() {
 
   // Add new task form submission event listener
   elements.modalWindow.addEventListener('submit',  (event) => {
-    addTask(event)
+    addTask(event);
   });
 }
-
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
-  modal.style.display = show ? 'block' => 'none'; 
+  modal.style.display = show ? 'block' : 'none'; 
 }
 
 /*************************************************************************************************************************************************
