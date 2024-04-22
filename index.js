@@ -2,7 +2,7 @@
 import { getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunctions.js';
 
 // TASK: import initialData
-import { initialData } from './initialData.js';
+import  {initialData}  from './initialData.js';
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -33,7 +33,7 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
-    activeBoard = localStorageBoard ? localStorageBoard :  boards[0]; 
+    activeBoard = localStorageBoard ? localStorageBoard :`   `  boards[0]; 
     elements.headerBoardName.textContent = activeBoard;
     styleActiveBoard(activeBoard);
     refreshTasksUI();
@@ -144,7 +144,8 @@ function addTaskToUI(task) {
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
-  cancelEditBtn.click() => toggleModal(false, elements.editTaskModal));
+  cancelEditBtn.addEventListener('click', () => { toggleModal(false, elements.editTaskModal);
+  });
 
   // Cancel adding new task event listener
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
