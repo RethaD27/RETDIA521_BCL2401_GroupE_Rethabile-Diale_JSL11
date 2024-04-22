@@ -209,11 +209,16 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- 
+ elements.sideBar.style.display = show ? 'block' : 'none';
+ elements.showSideBarBtn.style.display = show ? 'none' : 'block';
+ elememnts.hideSideBarBtn.style.display = show ? 'block' : 'none';
+ localStorage.setItem('light-theme', isLightTheme ? 'enabled' : 'disabled');
 }
 
 function toggleTheme() {
- 
+ const isLightTheme = elements.themeSwitch.checked;
+ document.body.classList.toggle('light-theme', isLightTheme);
+ localStorage.setItem('light-theme', isLightTheme ? 'enabled' : 'disabled');
 }
 
 
