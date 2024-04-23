@@ -2,7 +2,7 @@
 import { getTasks, createNewTask, patchTask, putTask, deleteTask } from './utils/taskFunctions.js';
 
 // TASK: import initialData
-import  { initialData }  from './initialData.js';
+import { initialData }  from './initialData.js';
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -20,6 +20,8 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
+headerBoardName: document.getElementById('header-board-name'),
+columnDivs: document.getElementById('column-div'),
 sideBar: document.querySelector('.side-bar'),
 showSideBarBtn: document.getElementById('show-side-bar-btn'),
 hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
@@ -200,6 +202,10 @@ function toggleModal(show, modal = elements.modalWindow) {
 function addTask(event) {
   event.preventDefault(); 
 
+  const titleInput = document.getElementById('title-input').value;
+  const descInput = document.getElementById('desc-input').value;
+  const statusInput = document.getElementById('select-status').value;
+
   //Assign user input to the task object
     const task = {
       title: titleInput,
@@ -235,7 +241,11 @@ function toggleTheme() {
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  
+  const editTaskTitleInput = document.getElementById('edit-task-title-input');
+  const editTaskDescInput = document.getElementById('edit-task-desc-input');
+  const editTaskStatusInput = document.getElementById('edit-select-status');
+  const saveTaskChangesBtn = document.getElementsById('save-task-changes-btn');
+  const deleteTaskBtn = document.getElementById('delete-task-btn');
 
   // Get button elements from the task modal
 
