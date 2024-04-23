@@ -29,7 +29,8 @@ themeSwitch: document.getElementById('switch'),
 filterDiv: document.getElementById('filterDiv'),
 createNewTaskBtn: document.getElementById('add-task-modal-window'),
 modalWindow: document.getElementById('new-task-modal-window'),
-editTaskModal: document.querySelector('.edit-task-modal-window')
+editTaskModal: document.querySelector('.edit-task-modal-window'),
+sideBarDiv: document.getElementById('side-bar-div'),
 };
 
 let activeBoard = "";
@@ -229,6 +230,7 @@ function toggleSidebar(show) {
  elements.showSideBarBtn.style.display = show ? 'none' : 'block';
  elememnts.hideSideBarBtn.style.display = show ? 'block' : 'none';
  localStorage.setItem('light-theme', isLightTheme ? 'enabled' : 'disabled');
+ localStorage.setItem('showSideBar', show ? 'true': 'false');
 }
 
 function toggleTheme() {
@@ -277,10 +279,8 @@ function saveTaskChanges(taskId) {
 
 document.addEventListener('DOMContentLoaded', function() {
   initializeData(); // init is called after the DOM is fully loaded
-});
 
 //function init() {
-
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
