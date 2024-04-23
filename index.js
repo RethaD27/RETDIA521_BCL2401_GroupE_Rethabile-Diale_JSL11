@@ -245,11 +245,9 @@ function openEditTaskModal(task) {
   const editTaskDescInput = document.getElementById('edit-task-desc-input');
   const editTaskStatusInput = document.getElementById('edit-select-status');
   
-
   // Get button elements from the task modal
-const saveTaskChangesBtn = document.getElementsById('save-task-changes-btn');
+  const saveTaskChangesBtn = document.getElementsById('save-task-changes-btn');
   const deleteTaskBtn = document.getElementById('delete-task-btn');
-
 
   // Call saveTaskChanges upon click of Save Changes button
  
@@ -278,14 +276,15 @@ function saveTaskChanges(taskId) {
 /*************************************************************************************************************************************************/
 
 document.addEventListener('DOMContentLoaded', function() {
-  init(); // init is called after the DOM is fully loaded
+  initializeData(); // init is called after the DOM is fully loaded
 });
 
-function init() {
+//function init() {
+
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
-}
+});
