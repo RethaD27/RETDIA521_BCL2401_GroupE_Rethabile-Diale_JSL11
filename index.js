@@ -43,7 +43,7 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
-    activeBoard = localStorageBoard ? localStorageBoard :`   `  boards[0]; 
+    activeBoard = localStorageBoard ? localStorageBoard : boards[0]; 
     elements.headerBoardName.textContent = activeBoard;
     styleActiveBoard(activeBoard);
     refreshTasksUI();
@@ -53,7 +53,7 @@ function fetchAndDisplayBoardsAndTasks() {
 // Creates different boards in the DOM
 // TASK: Fix Bugs
 function displayBoards(boards) {
-  const boardsContainer = document.getElementById("boards-nav-links-div");
+  const boardsContainer = document.querySelector("#boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
   boards.forEach(board => {
     const boardElement = document.createElement("button");
@@ -228,9 +228,9 @@ function addTask(event) {
 function toggleSidebar(show) {
  elements.sideBar.style.display = show ? 'block' : 'none';
  elements.showSideBarBtn.style.display = show ? 'none' : 'block';
- elememnts.hideSideBarBtn.style.display = show ? 'block' : 'none';
+ elements.hideSideBarBtn.style.display = show ? 'block' : 'none';
  localStorage.setItem('light-theme', isLightTheme ? 'enabled' : 'disabled');
- localStorage.setItem('showSideBar', show ? 'true': 'false');
+ localStorage.setItem('showSideBar', show ? 'true':'false');
 }
 
 function toggleTheme() {
@@ -280,7 +280,7 @@ function saveTaskChanges(taskId) {
 document.addEventListener('DOMContentLoaded', function() {
   initializeData(); // init is called after the DOM is fully loaded
 
-//function init() {
+function init() {
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
