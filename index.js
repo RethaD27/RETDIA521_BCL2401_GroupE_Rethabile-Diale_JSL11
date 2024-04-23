@@ -20,10 +20,17 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
+sideBar: document.querySelector('.side-bar'),
+showSideBarBtn: document.getElementById('show-side-bar-btn'),
+hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+themeSwitch: document.getElementById('switch'),
+filterDiv: document.getElementById('filterDiv'),
+createNewTaskBtn: document.getElementById('add-task-modal-window'),
+modalWindow: document.getElementById('new-task-modal-window'),
+editTaskModal: document.querySelector('.edit-task-modal-window')
+};
 
-}
-
-let activeBoard = ""
+let activeBoard = "";
 
 // Extracts unique board names from tasks
 // TASK: FIX BUGS
