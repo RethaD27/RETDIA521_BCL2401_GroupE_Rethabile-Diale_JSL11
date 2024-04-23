@@ -244,10 +244,11 @@ function openEditTaskModal(task) {
   const editTaskTitleInput = document.getElementById('edit-task-title-input');
   const editTaskDescInput = document.getElementById('edit-task-desc-input');
   const editTaskStatusInput = document.getElementById('edit-select-status');
-  const saveTaskChangesBtn = document.getElementsById('save-task-changes-btn');
-  const deleteTaskBtn = document.getElementById('delete-task-btn');
+  
 
   // Get button elements from the task modal
+const saveTaskChangesBtn = document.getElementsById('save-task-changes-btn');
+  const deleteTaskBtn = document.getElementById('delete-task-btn');
 
 
   // Call saveTaskChanges upon click of Save Changes button
