@@ -3,18 +3,18 @@
     "development"
   ],
   "hints": {
-    "axe/forms": [
-      "default",
-      {
-        "label": "off"
-      }
-    ],
+    "button-type": "off",
     "axe/name-role-value": [
       "default",
       {
         "button-name": "off"
       }
     ],
-    "button-type": "off"
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
+      }
+    ]
   }
 }
