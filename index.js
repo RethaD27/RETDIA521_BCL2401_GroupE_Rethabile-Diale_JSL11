@@ -317,9 +317,10 @@ function saveTaskChanges(taskId) {
   patchTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
-
+  location.reload();
+  toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
-});
+}
 
 toggleModal(true, elements.editTaskModal);
 }
