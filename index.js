@@ -32,7 +32,7 @@ const elements = {
   hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
   showSideBarBtn: document.getElementById('show-side-bar-btn'),
   header: document.getElementById('header'),
- // headerBoardName: document.getElementById('header-board-name'),
+  headerBoardName: document.getElementById('header-board-name'),
   dropdownBtn: document.getElementById('dropdownBtn'),
   addNewTaskBtn: document.getElementById('add-new-task-btn'),
   editBoardBtn: document.getElementById('edit-board-btn'),
@@ -239,7 +239,7 @@ function addTask(event) {
   //Assign user input to the task object
     const task_id = JSON.parse(localStorage.getItem('id'));
     const titleInput = elements.titleInput.value;
-    const descriptionInput = elements.descInput.value;
+    const descInput = elements.descInput.value;
     const selectStatus = elements.selectStatus.value;
 
     const task = {
@@ -341,6 +341,7 @@ function saveTaskChanges(taskId) {
 
   // Update task using a helper function
   patchTask(taskId, updatedTask);
+  putTask(taskId, updatedTask);
  
 
   // Close the modal and refresh the UI to reflect the changes
