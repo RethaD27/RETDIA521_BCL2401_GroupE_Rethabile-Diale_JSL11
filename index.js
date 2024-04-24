@@ -313,8 +313,8 @@ function saveTaskChanges(taskId) {
     board: activeBoard,
   };
 
-  // Update task using a hlper functoin
- 
+  // Update task using a helper functoin
+  patchTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
 
