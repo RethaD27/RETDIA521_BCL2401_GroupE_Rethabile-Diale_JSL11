@@ -3,9 +3,6 @@
 import {getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunctions.js';
 import {initialData} from './initialData.js';
 
-/*************************************************
- * FIX BUGS!!!
- * ************************************************/
 
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
