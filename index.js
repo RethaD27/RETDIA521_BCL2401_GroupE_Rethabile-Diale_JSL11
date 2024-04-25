@@ -17,7 +17,7 @@ function initializeData() {
   }
 }
 
-initializeData();
+initializeData(); // Call the initialization function to set up tasks and sidebar visibility
 
 // TASK: Get elements from the DOM
 const elements = {
@@ -58,11 +58,12 @@ const elements = {
   filterDiv: document.getElementById('filterDiv'),
 }
 
-let activeBoard = ""
+// Variable to track the active board name
+let activeBoard = "";
 
 // Extracts unique board names from tasks
-// TASK: FIX BUGS
 function fetchAndDisplayBoardsAndTasks() {
+  // Fetch tasks from local storage
   const tasks = getTasks();
   const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
   displayBoards(boards);
@@ -76,7 +77,6 @@ function fetchAndDisplayBoardsAndTasks() {
 }
 
 // Creates different boards in the DOM
-// TASK: Fix Bugs
 function displayBoards(boards) {
   const boardsContainer = document.getElementById("boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
@@ -103,7 +103,6 @@ const columnTitles = {
 }
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
-// TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
   const filteredTasks = tasks.filter(task => task.board === boardName);
@@ -144,7 +143,6 @@ function refreshTasksUI() {
 }
 
 // Styles the active board by adding an active class
-// TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').forEach(btn => { 
     
@@ -157,7 +155,7 @@ function styleActiveBoard(boardName) {
   });
 }
 
-
+// Function to add task to the UI
 function addTaskToUI(task) {
   const column = document.querySelector('.column-div[data-status="${task.status}"]'); 
   if (!column) {
@@ -182,7 +180,7 @@ function addTaskToUI(task) {
 }
 
 
-
+// Function to set up event listeners
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
@@ -224,15 +222,11 @@ function setupEventListeners() {
 }
 
 // Toggles tasks modal
-// Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
   modal.style.display = show ? 'block' : 'none'; 
 }
 
-/*************************************************
- * COMPLETE FUNCTION CODE
- * ************************************************/
-
+// Function to add new task
 function addTask(event) {
   event.preventDefault(); 
 
@@ -242,6 +236,7 @@ function addTask(event) {
     const descInput = elements.descInput.value;
     const selectStatus = elements.selectStatus.value;
 
+// Create task object
     const task = {
       'id': task_id,
 	    'title': titleInput,
@@ -249,6 +244,8 @@ function addTask(event) {
 	    'status': selectStatus,
       'board': activeBoard,
     };
+
+    // Create new task
     const newTask = createNewTask(task);
     if (newTask) {
       addTaskToUI(newTask);
@@ -260,7 +257,7 @@ function addTask(event) {
     location.reload();
 }
 
-
+// Function to toggle sidebar visibility
 function toggleSidebar(show) {
     elements.sideBar.style.display = show ? 'block' : 'none';
     elements.showSideBarBtn.style.display = show ? 'none' : 'block';
@@ -277,7 +274,6 @@ elements.sideLogoDiv.src = sideLogoDivSrc;
 
 
 function toggleTheme() {
-
   const isLightTheme = document.body.classList.contains('light-theme');
   document.body.classList.toggle('light-theme');
   localStorage.setItem('light-theme', !isLightTheme ? 'enabled' : 'disabled');
@@ -290,8 +286,7 @@ function toggleTheme() {
 
 }
 
-
-
+// Function to open edit task modal
 function openEditTaskModal(task) {
   // Set task details in modal inputs
   elements.editTaskTitleInput.value = task.title;
@@ -323,6 +318,7 @@ function openEditTaskModal(task) {
   refreshTasksUI();
 }
 
+// Function to save task changes
 function saveTaskChanges(taskId) {
   // Get new user inputs
   const titleInput = elements.editTaskTitleInput.value;
@@ -375,6 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
   init(); // init is called after the DOM is fully loaded
 });
 
+// Function to initialize the application
 function init() {
   if (localStorage.getItem('sideLogoDiv') === './assets/logo-light.svg') {
     elements.sideLogoDiv.src = './assets/logo-light.svg';
