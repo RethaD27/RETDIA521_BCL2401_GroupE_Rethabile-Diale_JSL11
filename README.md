@@ -17,7 +17,7 @@ This is a simple task management web application that allows users to organise t
 * assets/
 
 
-# Reflections
+## Reflections
 * I learned how to implement dynamic functionality using JavaScript, using as adding event listeners, manipulating the DOM, and interacting with local storage.
 * And, also I gained experience in organising project files and directories in a clear and logical manner for better maintainability and collaboration.
 
